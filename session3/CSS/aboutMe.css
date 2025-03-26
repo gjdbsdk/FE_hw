@@ -1,15 +1,8 @@
-@font-face {
-  font-family: "basic";
-  font-style: normal;
-  src: url(../../session3/Noto_Serif_KR/static/NotoSerifKR-Bold.ttf)
-    format("truetype");
-}
 .box_2 {
   text-align: center;
   font-style: normal;
 }
 body {
-  font-family: basic;
   background-color: palegoldenrod;
 }
 .box_3 {
@@ -26,7 +19,7 @@ body {
 .box_5 {
   text-indent: 20px;
   text-align: left;
-  width: 290px;
+  width: 300px;
   height: 100px;
   background-color: white;
   border-radius: 10%;
