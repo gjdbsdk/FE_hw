@@ -18,11 +18,9 @@ body {
   display: flex;
   align-items: center;
   width: 250px;
-  height: auto;
-  margin: 10%;
-  margin-right: 0;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  height: 57px;
+  margin-top: 13px;
+  margin-bottom: 13px;
   padding-right: 100px;
 }
 
@@ -53,7 +51,7 @@ ul {
     display: none;
   }
 }
-.header_nav-links li {
+.textblank {
   margin: 0 20px;
 }
 .header_nav-links:nth-child(8) {
@@ -72,7 +70,7 @@ a {
   display: flex;
 }
 .studyingimage {
-  width: 1520px;
+  width: 100vw;
   height: auto;
 }
 .studyingimagehugger {
@@ -82,7 +80,7 @@ a {
   position: absolute;
   display: flex;
   width: 600px;
-  top: 220px;
+  top: 100px;
   left: 450px;
 }
 .search:hover {
@@ -93,22 +91,24 @@ a {
   padding: 30px;
   display: flex;
   padding-top: 20px;
-  height: 150px;
+  height: auto;
   background-color: rgba(233, 233, 233, 0.999);
   justify-content: center;
   color: rgb(98, 98, 98);
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 90%;
   border-bottom: 1px solid silver;
 }
 .sectionbox li {
   margin-bottom: 0;
-  padding: 5px;
+  padding: 10px;
   padding-bottom: 0;
 }
 .imagebuttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 160px;
 }
 .imagebuttons:hover {
   color: rgb(149, 8, 52);
