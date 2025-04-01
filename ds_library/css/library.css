@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+KR:wght@200..900&display=swap");
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 550;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.librarylogo {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  height: auto;
+  margin: 10%;
+  margin-right: 0;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding-right: 100px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.header_nav-links {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+@media screen and (max-width: 990px) {
+  .bigscreen {
+    display: none;
+  }
+  .header {
+    padding: 0;
+  }
+  .librarylogo {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 991px) {
+  .smallscreen {
+    display: none;
+  }
+}
+.header_nav-links li {
+  margin: 0 20px;
+}
+.header_nav-links:nth-child(8) {
+  margin-right: 0;
+}
+.header_nav-links a {
+  font-size: 16px;
+}
+.header_nav-links a:hover {
+  color: rgb(149, 8, 52);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+.studyingimage {
+  width: 1520px;
+  height: auto;
+}
+.studyingimagehugger {
+  position: relative;
+}
+.search {
+  position: absolute;
+  display: flex;
+  width: 600px;
+  top: 220px;
+  left: 450px;
+}
+.search:hover {
+  cursor: text;
+}
+.sectionbox {
+  margin-top: -5px;
+  padding: 30px;
+  display: flex;
+  padding-top: 20px;
+  height: 150px;
+  background-color: rgba(233, 233, 233, 0.999);
+  justify-content: center;
+  color: rgb(98, 98, 98);
+  font-weight: 500;
+  border-bottom: 1px solid silver;
+}
+.sectionbox li {
+  margin-bottom: 0;
+  padding: 5px;
+  padding-bottom: 0;
+}
+.imagebuttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imagebuttons:hover {
+  color: rgb(149, 8, 52);
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sec_asi {
+  display: flex;
+  justify-content: center;
+}
+.banner {
+  width: 570px;
+  height: 430px;
+  margin: 50px;
+  margin-left: 10px;
+}
+.banner:hover {
+  cursor: pointer;
+}
+.notice {
+  margin-left: 50px;
+  margin-right: 10px;
+  width: 550px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid black;
+  font-size: 30px;
+}
+.articles {
+  margin-right: 10px;
+  margin-left: 50px;
+  width: 550px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid silver;
+}
+.articles li {
+  padding-left: 20px;
+}
+.dates {
+  font-size: smaller;
+  color: gray;
+}
+.upup {
+  display: flex;
+  position: fixed;
+  bottom: 35px;
+  right: 110px;
+  z-index: 5;
+}
+.upup:hover {
+  cursor: pointer;
+}
+.hamburgermenu {
+  width: 30px;
+}
+.mymenu {
+  width: 20px;
+}
+.plus {
+  padding-left: 150px;
+}
