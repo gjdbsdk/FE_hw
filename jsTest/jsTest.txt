@@ -1,0 +1,75 @@
+1. 3
+2. includes
+3. n%2 === 0
+4. 30000
+5. createElement
+6. change() ####
+7. const lion=()=>{
+	console.log("자바스크립트 마스터를 해보자!");
+}
+lion();
+8. 
+alert(islogin==true?"환영합니다!":"접근 권한이 없습니다.";
+9. 
+do{
+	let ans = prompt("무엇을 말하고 싶나요?","");
+}while(ans !== "끝")
+10. 
+const i;
+let total = 0;
+let untilNum = Number(prompt("숫자를 입력하세요.",""));
+while ( i = 1 ;  i <= untilNum ; i++){
+	total += i;
+}
+alert("1부터 해당 값까지의 합은 " + total + "입니다.");
+11.
+function randomNum(){
+	return Math.floor(Math.random() * 11);
+}
+let arr = [];
+let i = 0;
+let total = 0;
+for ( i = 0 ; i < 3 ; i++)
+{
+	arr[i] = randomNum();
+	document.write(i + "번째 랜덤 난수 : " + arr[i]);
+	total += arr[i];
+}
+document.write("3개의 합 : ",total);
+12. ###
+const arr1 = ["빨강","주황","노랑","초록"];
+const arr2 = ["파랑","남색","보라","핑크"];
+
+let newArr = arr1;
+let i;
+for (i = 0 ; i < 4 ; i ++){
+	newArr = newArr.push(arr2[i]);
+}
+console.log(newArr);
+console.log(newArr[3]);
+console.log(newArr.slice(4,9));
+13.
+const lastDay = new Date();
+console.log(lastDay.getFullYear() + "년 " + (lastDay.getMonth()+1) + "월 " + lastDay.setDate(2) + "일");
+const now = new Date();
+document.write("오늘 날짜: " + now.getFullYear() + "년 " + (now.getMonth()+1) + "월 " + now.getDate() + "일");
+document.write("2025년 5월 2일로부터 " +(lastDay.getDate() - now.getDate()) + "일이 지났습니다." );
+14. 
+let btnPush = document.getElementById("name");
+let cnt = 1;
+btnPush.onclick = () =>{
+	++cnt;
+	span.innerHTML("likelion_" + cnt);
+}
+15. 
+let person{
+	age = prompt("나이를 입력하세요","");
+	name = prompt("이름을 입력하세요","");
+	showInform = () => {
+		alert("안녕, " + this.age + "살 " + this.name + "!!");
+	}
+person.showInform();
+
+
+
+
