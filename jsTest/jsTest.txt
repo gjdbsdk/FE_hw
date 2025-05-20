@@ -1,77 +1,89 @@
 채점 결과 3/15
 
-X 1. 3
+X 1. 2 // innerValue는..배운적도 없었군요 무서운이야기 *textContent는 HTML요소의 텍스트를 쓸 수 있음
+
 O 2. includes
+
 O 3. n%2 === 0
-X 4. 30000
-X 5. createElement
-X 6. change() ####
+
+X 4. 3000 // 급하게 쓰다 보니 0을 하나 더 썼나 봅니다,, 3000ms == 3초, 30000ms == 30초
+
+X 5. appendChild // createElement("태그이름")는 document 자체에 새로운 태그를 삽입하는 것, appendChild(태그이름)는 부모 요소에 추가하는 것
+
+X 6. innerText = count // 문제가 이해하는 바를 잘 이해하지 못했었습니다.. 버튼 안에 있는 숫자가 버튼을 누를 때마다 1씩 증가하도록 코드를 수정하였습니다.
+
 O 7. const lion=()=>{
 	console.log("자바스크립트 마스터를 해보자!");
 }
 lion();
-X 8. 
-alert(islogin==true?"환영합니다!":"접근 권한이 없습니다.";
-X 9. 
+
+X 8. // 괄호를 안닫았었네요. 혹시 다른 부분도 틀렸을까요?
+alert(islogin==true?"환영합니다!":"접근 권한이 없습니다."); 
+
+X 9. // 스코프를 고려하지 못해 block부분에서 ans를 선언했었습니다.
+let ans;
 do{
-	let ans = prompt("무엇을 말하고 싶나요?","");
+	ans = prompt("무엇을 말하고 싶나요?","");
 }while(ans !== "끝")
-X 10. 
-const i;
+
+X 10. //뒤쪽에는 let으로 잘 써두고 여기서만 const를 사용했었네요..while도 for문이랑 헷갈려서 조건을 이상하게 써놨나 봅니다..주의하겠습니다
+let i = 1;
 let total = 0;
 let untilNum = Number(prompt("숫자를 입력하세요.",""));
-while ( i = 1 ;  i <= untilNum ; i++){
+while (i < untilNum){
 	total += i;
+	i++;
 }
 alert("1부터 해당 값까지의 합은 " + total + "입니다.");
-X 11.
+
+X 11. // 줄바꿈처리와 쉼표를 수정하였습니다. i 설정도 1부터 시작하도록 수정하였습니다.
 function randomNum(){
 	return Math.floor(Math.random() * 11);
 }
 let arr = [];
-let i = 0;
+let i;
 let total = 0;
-for ( i = 0 ; i < 3 ; i++)
+for ( i = 1 ; i <= 3 ; i++)
 {
 	arr[i] = randomNum();
-	document.write(i + "번째 랜덤 난수 : " + arr[i]);
+	document.write(i + "번째 랜덤 난수 : " + arr[i] + "<br>");
 	total += arr[i];
 }
-document.write("3개의 합 : ",total);
-X 12. ###
+document.write("3개의 합 : " + total);
+
+X 12. // 전개 연산자 부분을 자세히 보지 않아 존재 조차 몰랐습니다..! 전개 연산자를 사용하니 코드가 제가 짜려고 했던 것 보다 훨씬 간단해 지네요!! 완전 나이스
 const arr1 = ["빨강","주황","노랑","초록"];
 const arr2 = ["파랑","남색","보라","핑크"];
 
-let newArr = arr1;
-let i;
-for (i = 0 ; i < 4 ; i ++){
-	newArr = newArr.push(arr2[i]);
-}
-console.log(newArr);
-console.log(newArr[3]);
-console.log(newArr.slice(4,9));
-X 13.
-const lastDay = new Date();
-console.log(lastDay.getFullYear() + "년 " + (lastDay.getMonth()+1) + "월 " + lastDay.setDate(2) + "일");
+let combined = [...arr1,...arr2];
+console.log(combined);
+console.log(combined[3]);
+console.log(combined.slice(4,9));
+
+X 13.//지금보니 괴랄한 방식으로 일자를 설정했네요. Date객체에 대한 이해가 부족한 것 같아 더 공부해봐야 할 것 같습니다.
+const lastDay = new Date(2025,4,2); //월은 0(1월)부터 시작
+console.log(lastDay.getFullYear() + "년 " + (lastDay.getMonth()+1) + "월 " + lastDay.getDate() + "일");
 const now = new Date();
-document.write("오늘 날짜: " + now.getFullYear() + "년 " + (now.getMonth()+1) + "월 " + now.getDate() + "일");
-document.write("2025년 5월 2일로부터 " +(lastDay.getDate() - now.getDate()) + "일이 지났습니다." );
-X 14. 
-let btnPush = document.getElementById("name");
+document.write("오늘 날짜: " + now.getFullYear() + "년 " + (now.getMonth()+1) + "월 " + now.getDate() + "일" + "<br>");
+const dif = now - lastDay;
+const fromPast = Math.floor(dif/(1000*60*60*24));
+document.write("2025년 5월 2일로부터 " + fromPast + "일이 지났습니다." );
+//지난 일수로 달이 바뀌었거나 년이 바뀌었을 경우도 고려하여 코드를 수정하였습니다. 아직 이 방식이 익숙치는 않아 더 써봐야 손에 익을 것 같습니다.
+
+X 14. // innerHTML을 함수마냥 사용한 것도 대입형태로 수정하였습니다.span을 사용할 필요가 없는 것 같아 삭제했습니다.
+let span = document.getElementById("name");
 let cnt = 1;
-btnPush.onclick = () =>{
-	++cnt;
-	span.innerHTML("likelion_" + cnt);
+function change() {
+    ++cnt;
+    span.innerHTML = "likelion_" + cnt;
 }
-X 15. 
-let person{
-	age = prompt("나이를 입력하세요","");
-	name = prompt("이름을 입력하세요","");
-	showInform = () => {
-		alert("안녕, " + this.age + "살 " + this.name + "!!");
-	}
+
+X 15. //객체에 대입연산자를 빠뜨렸던 것 수정했습니다. 프로퍼티 정의도 항상 헷갈리는데 바로 잡아둬야겠습니다. 파이썬 딕셔너리에서도 자꾸 =으로 정의하더라구요..txt파일로 쓰다보니 세미콜론도 종종 빼먹은 것 같습니다
+let person = {
+        age: prompt("나이를 입력하세요", ""),
+        name: prompt("이름을 입력하세요", ""),
+        showInform: function () {
+          alert("안녕, " + this.age + "살 " + this.name + "!!");
+    },
+};
 person.showInform();
-
-
-
-
