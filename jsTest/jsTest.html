@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let age = prompt("나이를 입력하세요", "");
+      let name = prompt("이름을 입력하세요", "");
+      let person = {
+        age: age,
+        name: name,
+        showInform: function () {
+          alert("안녕, " + this.age + "살 " + this.name + "!!");
+        },
+      };
+      person.showInform();
+    </script>
+  </body>
+</html>
