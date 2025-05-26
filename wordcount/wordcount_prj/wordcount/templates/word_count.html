@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% load static %}{% block title %}WordCount{%endblock%}
+{% block style %} <link rel="stylesheet" href="{% static 'css/word_count.css' %}"> {% endblock %}
+{% block body %}{% include "./header.html" %}
+<h1>Word Count!</h1>
+<div class="hugger">
+    <img src="{% static 'img/th.jpg' %}" alt="고양이" />
+</div>
+<form action="{% url 'result' %}">
+    <textarea name="fulltext" cols="40" rows="20"></textarea>
+    <br />
+    <input type="submit" value="Count!" />
+</form>
+{% endblock %}
+

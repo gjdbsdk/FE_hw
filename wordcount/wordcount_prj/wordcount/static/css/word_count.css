@@ -1,0 +1,15 @@
+img {
+  width: 100px;
+  border-radius: 30%;
+}
+.hugger {
+  width: 200px;
+  height: 200px;
+  background-color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30%;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
