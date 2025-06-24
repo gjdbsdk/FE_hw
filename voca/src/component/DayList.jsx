@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
-export default function DayList() {
+function DayList() {
   const days = useFetch("http://localhost:3001/days");
 
   if (days.length === 0) {
@@ -18,3 +18,4 @@ export default function DayList() {
     </ul>
   );
 }
+export default DayList;
