@@ -5,10 +5,17 @@ import { Routes, Route } from "react-router-dom";
 import EmptyPage from "./component/EmptyPage";
 import CreateWord from "./component/CreateWord";
 import CreateDay from "./component/CreateDay";
+import React from "react";
+import styled from "styled-components";
+
+const AppClass = styled.section`
+  width: 800px;
+  margin: 0 auto;
+`;
 
 function App() {
   return (
-    <div className="App">
+    <AppClass>
       <Header />
       <Routes>
         <Route path="/" element={<DayList />} />
@@ -17,7 +24,7 @@ function App() {
         <Route path="/create_day" element={<CreateDay />} />
         <Route path="*" element={<EmptyPage />} />
       </Routes>
-    </div>
+    </AppClass>
   );
 }
 

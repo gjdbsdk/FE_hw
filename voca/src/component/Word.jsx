@@ -1,4 +1,54 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const TableTd = styled.td`
+  width: 25%;
+  height: 70px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 26px;
+`;
+
+const TableFirstTd = styled.td`
+  height: 70px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 26px;
+  width: 10%;
+`;
+
+const DeleteButton = styled.button`
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: 0 none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: dodgerblue;
+  margin-left: 10px;
+  color: #fff;
+  background-color: firebrick;
+`;
+const Buttons = styled.button`
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: 0 none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: dodgerblue;
+`;
+
+const StyledTr = styled.tr`
+  &.off {
+    background: #eee;
+    color: #ccc;
+  }
+`;
 
 function Word({ word: w }) {
   const [word, setWord] = useState(w);
@@ -40,20 +90,22 @@ function Word({ word: w }) {
     }
   }
 
+  if (word.id === 0) return null;
+
   return (
-    <tr className={isDone ? "off" : ""}>
-      <td>
+    <StyledTr className={isDone ? "off" : ""}>
+      <TableFirstTd>
         <input type="checkbox" checked={isDone} onChange={toggleDone} />
-      </td>
-      <td>{word.eng}</td>
-      <td>{isShow && word.kor}</td>
-      <td>
-        <button onClick={toggleShow}>{isShow ? "뜻 숨기기" : "뜻 보기"}</button>
-        <button onClick={del} className="btn_del">
-          삭제
-        </button>
-      </td>
-    </tr>
+      </TableFirstTd>
+      <TableTd>{word.eng}</TableTd>
+      <TableTd>{isShow && word.kor}</TableTd>
+      <TableTd>
+        <Buttons onClick={toggleShow}>
+          {isShow ? "뜻 숨기기" : "뜻 보기"}
+        </Buttons>
+        <DeleteButton onClick={del}>삭제</DeleteButton>
+      </TableTd>
+    </StyledTr>
   );
 }
 export default Word;

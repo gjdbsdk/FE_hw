@@ -1,5 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import styled from "styled-components";
+
+const Buttons = styled.button`
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: 0 none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: dodgerblue;
+`;
 
 function CreateDay() {
   const days = useFetch("http://localhost:3001/days");
@@ -24,7 +37,7 @@ function CreateDay() {
   return (
     <div>
       <h3>현재 일수 : {days.length}일</h3>
-      <button onClick={addDay}>Day 추가</button>
+      <Buttons onClick={addDay}>Day 추가</Buttons>
     </div>
   );
 }

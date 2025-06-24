@@ -1,6 +1,42 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import styled from "styled-components";
+
+const Buttons = styled.button`
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: 0 none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: dodgerblue;
+`;
+
+const InputArea = styled.section`
+  margin-bottom: 10px;
+`;
+const InputAreaLabel = styled.label`
+  margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
+`;
+const InputAreaInput = styled.input`
+  margin-bottom: 10px;
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+  padding: 0 10px;
+`;
+
+const InputAreaSelect = styled.select`
+  margin-bottom: 10px;
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+`;
 
 function CreateWord() {
   const days = useFetch("http://localhost:3001/days");
@@ -42,27 +78,27 @@ function CreateWord() {
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="input_area">
-        <label>Eng</label>
-        <input type="text" placeholder="computer" ref={engRef} />
-      </div>
-      <div className="input_area">
-        <label>Kor</label>
-        <input type="text" placeholder="컴퓨터" ref={korRef} />
-      </div>
-      <div className="input_area">
-        <label>Day</label>
-        <select ref={dayRef}>
+      <InputArea>
+        <InputAreaLabel>Eng</InputAreaLabel>
+        <InputAreaInput type="text" placeholder="computer" ref={engRef} />
+      </InputArea>
+      <InputArea>
+        <InputAreaLabel>Kor</InputAreaLabel>
+        <InputAreaInput type="text" placeholder="컴퓨터" ref={korRef} />
+      </InputArea>
+      <InputArea>
+        <InputAreaLabel>Day</InputAreaLabel>
+        <InputAreaSelect ref={dayRef}>
           {days.map((day) => (
             <option key={day.id} value={day.day}>
               {day.day}
             </option>
           ))}
-        </select>
-      </div>
-      <button style={{ opacity: isLoading ? 0.3 : 1 }}>
+        </InputAreaSelect>
+      </InputArea>
+      <Buttons style={{ opacity: isLoading ? 0.3 : 1 }}>
         {isLoading ? "Saving..." : "저장"}
-      </button>
+      </Buttons>
     </form>
   );
 }
