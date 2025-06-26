@@ -2,13 +2,9 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Textinput from "../ui/TextInput";
 import Button from "../ui/Button";
-import styled from "styled-components";
+import ContentInput from "../styleComponents/ContentInput";
 import { Link } from "react-router-dom";
-
-const Myblogname = styled.h3`
-  display: flex;
-  justify-content: center;
-`;
+import MyBlogName from "../styleComponents/MyBlogName";
 
 export default function PostWritePage() {
   const navigate = useNavigate();
@@ -51,15 +47,16 @@ export default function PostWritePage() {
   }
   return (
     <div>
-      <Myblogname>
+      <MyBlogName>
         <Link to="/">나의 미니 블로그</Link>
-      </Myblogname>
+      </MyBlogName>
+
       <form onSubmit={onSubmit}>
         <Textinput placeholder="제목을 입력하세요." ref={titleRef}></Textinput>
-        <Textinput
+        <ContentInput
           placeholder="내용을 입력하세요."
           ref={contentRef}
-        ></Textinput>
+        ></ContentInput>
         <Button style={{ opacity: isLoading ? 0.3 : 1 }}>
           {isLoading ? "작성 중..." : "작성 완료"}
         </Button>

@@ -1,43 +1,39 @@
-import { useParams } from "react-router-dom";
-import data from "../../db/data.json";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import Hugger from "../styleComponents/Hugger";
+import Back from "../styleComponents/Back";
+import Title from "../styleComponents/Title";
+
 import CommentList from "../list/CommentList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Textinput from "../ui/TextInput";
 import Button from "../ui/Button";
 
-const Back = styled.button`
-  display: flex;
-  justify-content: center;
-  width: 100px;
-  background: silver;
-  border-radius: 10px;
-  padding: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
-  border: none;
-`;
-
-const Hugger = styled.section`
-  margin: 5px;
-  border: 2px solid silver;
-  padding: 10px;
-  border-radius: 10px;
-`;
-const Title = styled.h2`
-  padding: 10px;
-`;
 export default function PostViewPage() {
   const { id } = useParams();
-  const postId = parseInt(id, 10);
-  const post = data.posts.find((p) => p.id === postId);
+  const [post, setPost] = useState(null);
+  const navigate = useNavigate();
 
-  const [comments, setComments] = useState(post?.comments || []);
+  const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
 
-  if (!data.posts) {
-    return <p>해당 글을 찾을 수 없습니다.</p>;
+  useEffect(() => {
+    fetch(`http://localhost:3001/posts/${id}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("글 없음");
+        return res.json();
+      })
+      .then((data) => {
+        setPost(data);
+        setComments(data.comments || []);
+      })
+      .catch(() => {
+        alert("해당 글을 찾을 수 없습니다.");
+        navigate("/");
+      });
+  }, [id, navigate]);
+
+  if (!post) {
+    return <p>로딩 중 ...</p>;
   }
 
   const addComment = () => {

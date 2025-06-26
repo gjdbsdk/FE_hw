@@ -1,24 +1,20 @@
 import PostListItem from "../list/PostListItem";
-import styled from "styled-components";
-
-const PostBox = styled.section`
-  margin: 5px;
-  border: 2px solid silver;
-  padding: 10px;
-  border-radius: 10px;
-`;
+import PostBox from "../styleComponents/PostBox";
+import { Link } from "react-router-dom";
 
 export default function PostList({ posts }) {
   if (!Array.isArray(posts)) {
-    return <p>게시글이 없습니다.</p>; // 혹은 로딩 상태 등
+    return <p>게시글이 없습니다.</p>;
   }
 
   return (
     <div>
       {posts.map((post) => (
-        <PostBox key={post.id}>
-          <PostListItem post={post} />
-        </PostBox>
+        <Link to={`/post_view_page/${post.id}`}>
+          <PostBox key={post.id}>
+            <PostListItem post={post} />
+          </PostBox>
+        </Link>
       ))}
     </div>
   );
